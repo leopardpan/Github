@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zG6-JX-Bub">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Mine-->
+        <scene sceneID="zOk-RI-4f2">
+            <objects>
+                <viewController storyboardIdentifier="MineVC" id="H8d-IT-lDK" customClass="MineViewController" customModule="Github" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3UC-d9-Xfo"/>
+                        <viewControllerLayoutGuide type="bottom" id="fBn-An-wUr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vGT-pf-Ydo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mine" id="esM-JT-R46"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Id-Ho-w4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744" y="320"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dwh-lo-cfL">
+            <objects>
+                <navigationController storyboardIdentifier="navMine" automaticallyAdjustsScrollViewInsets="NO" id="zG6-JX-Bub" customClass="NavigationController" customModule="Github" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6FD-MK-cck">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H8d-IT-lDK" kind="relationship" relationship="rootViewController" id="MJc-sc-cvs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ne9-cR-pRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="320"/>
+        </scene>
+    </scenes>
+</document>
