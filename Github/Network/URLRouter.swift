@@ -55,6 +55,7 @@ enum URLRouter: URLRequestConvertible {
         
         let request = NSMutableURLRequest()
         request.URL = NSURL(string: "\(baseURL)\(path)")
+        print(request.URL);
         request.HTTPMethod = method!.rawValue
         return ParameterEncoding.URL.encode(request, parameters: params).0
     }
