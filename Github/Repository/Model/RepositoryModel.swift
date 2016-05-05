@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryModel: NSObject {
+class RepositoryModel: BaseModel {
 
     var id: NSNumber?
     var name: String?

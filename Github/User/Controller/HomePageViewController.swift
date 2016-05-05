@@ -6,24 +6,41 @@
 //  Copyright © 2016年 leopardpan. All rights reserved.
 //
 
+import Alamofire
+
 class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    
     @IBOutlet weak var bgViewWidth: NSLayoutConstraint!
-    
     @IBOutlet weak var tableView: UITableView!
     
     var searchModel: SearchModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Request.SearchUser(1, q: "location:beijing", sort: "followers") { (data) in
-            self.searchModel = SearchModel.mj_objectWithKeyValues(data)
-            self.tableView.reloadData()
-        }
+        bgViewWidth.constant = self.view.bounds.size.width*3
+        loadData()
     }
     
+    func loadData() {
+        if let model = Archive.fetch("user.data") {
+            searchModel = model as? SearchModel
+            self.tableView.reloadData()
+        }
+        requestSearchUser()
+    }
+    
+    func requestSearchUser() {
+        request(URLRouter.SearchUser(page: 1, q: "location:beijing", sort: "followers")).responseJSON { (response) in
+            do {
+                let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
+                self.searchModel = SearchModel.mj_objectWithKeyValues(data)
+                Archive.save(self.searchModel!, fileName: "user.data")
+                self.tableView.reloadData()
+            } catch {
+                
+            }
+        }
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = searchModel?.items?.count {
@@ -44,9 +61,11 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             default: break
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(ID, forIndexPath: indexPath) as! UserTableViewCell
-        cell.setupUI(searchModel!.items![indexPath.row])
-        cell.score.text = "\(indexPath.row+1)"
+        let cell = tableView.dequeueReusableCellWithIdentifier(ID, forIndexPath: indexPath)
+        if let userCell = cell as? UserTableViewCell {
+            userCell.setupUI(searchModel!.items![indexPath.row])
+            userCell.score.text = "\(indexPath.row+1)"
+        }
         return cell
     }
     

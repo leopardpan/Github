@@ -1,5 +1,5 @@
 //
-//  SearchModel.swift
+//  RepositoryBaseModel.swift
 //  Github
 //
 //  Created by baixinpan on 16/5/4.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class SearchModel: NSObject {
+class RepositoryBaseModel: BaseModel {
 
-    var total_count: AnyObject?
+    var total_count: NSString?
     var incomplete_results: NSNumber?
-    var items: [UserModel]?
+    var items: [RepositoryModel]?
     
     override static func mj_objectClassInArray() -> [NSObject : AnyObject]! {
-        return ["items": UserModel.classForCoder()]
+        return ["items": RepositoryModel.classForCoder()]
     }
-    
 }

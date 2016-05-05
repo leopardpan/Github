@@ -6,8 +6,9 @@
 //  Copyright © 2016年 leopardpan. All rights reserved.
 //
 
+import Alamofire
 
-class RepositoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RepositoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -15,11 +16,27 @@ class RepositoryViewController: UIViewController, UITableViewDataSource, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Request.SearchRepositories(1, q: "language:JavaScript", sort: "stars") { (data) in
-            self.reposit = RepositoryBaseModel.mj_objectWithKeyValues(data)
-            print("repository = \(data)")
+        loadData()
+    }
+    
+    func loadData() {
+        if let model = Archive.fetch("reposit.data") {
+            reposit = model as? RepositoryBaseModel
             self.tableView.reloadData()
+        }
+        requestSearchUser()
+    }
+    
+    func requestSearchUser() {
+        request(URLRouter.SearchUser(page: 1, q: "language:JavaScript", sort: "stars")).responseJSON { (response) in
+            do {
+                let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
+                self.reposit = RepositoryBaseModel.mj_objectWithKeyValues(data)
+                Archive.save(self.reposit!, fileName: "reposit.data")
+                self.tableView.reloadData()
+            } catch {
+                
+            }
         }
     }
     

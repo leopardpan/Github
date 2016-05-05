@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserModel: NSObject {
+class UserModel: BaseModel{
 
     var login: String?
     var id: String?
