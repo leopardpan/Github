@@ -30,6 +30,21 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let delegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        let tabBarVC = delegate.window?.rootViewController as? TabBarController
+        tabBarVC?.tabBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        let delegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        let tabBarVC = delegate.window?.rootViewController as? TabBarController
+        tabBarVC?.tabBarHidden = false
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -38,21 +53,24 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     
-        return 0
+        return 10
     }
     
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var ID = "cellRepo"
+        var ID = "cell"
         switch tableView.tag {
+        case 10:
+            ID = "cellF0"
         case 2:
-            ID = "celF1"
+            ID = "cellF1"
         case 3:
             ID = "cellF2"
         default: break
         }
         
+        print("tag = \(tableView.tag)  ID=\(ID)")
         let cell = tableView.dequeueReusableCellWithIdentifier(ID, forIndexPath: indexPath)
         print("cell = \(cell)")
         

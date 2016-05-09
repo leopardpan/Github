@@ -52,8 +52,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var ID = "cell1"
+        var ID = "cell"
         switch tableView.tag {
+            case 1:
+                ID = "cell1"
             case 2:
                 ID = "cell2"
             case 3:
