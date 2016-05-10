@@ -13,7 +13,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var bgViewWidth: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     
-    var searchModel: SearchModel?
+    private var searchModel: SearchModel? = SearchModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +42,14 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = searchModel?.items?.count {
-            return count
-        }
-        return 0
+        return searchModel!.items!.count
     }
     
-    // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var ID = "cell"
+        var ID = ""
         switch tableView.tag {
             case 1:
                 ID = "cell1"
@@ -73,7 +70,11 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
+        let userDetail = Storyboards.HomePage.instantiateViewControllerWithIdentifier("userDetail") as! UserDetailViewController
+        userDetail.userModel = searchModel!.items![indexPath.row]
+        self.navigationController?.pushViewController(userDetail, animated: true)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

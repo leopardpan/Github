@@ -1,19 +1,19 @@
 //
-//  RepositoryModel.swift
+//  UserReposModel.swift
 //  Github
 //
-//  Created by baixinpan on 16/5/4.
+//  Created by baixinpan on 16/5/10.
 //  Copyright © 2016年 leopardpan. All rights reserved.
 //
 
 import UIKit
 
-class RepositoryModel: BaseModel {
-
+class UserReposModel: BaseModel {
+    
     var id: NSNumber?
     var name: String?
     var full_name: String?
-    var owner: RepositoryOwnerModel?
+    var owner: ReposOwnerModel?
     var privat: Bool?
     var html_url: String?
     var desc: String?
@@ -35,11 +35,12 @@ class RepositoryModel: BaseModel {
     /******* 需要再加 ********/
     
     var stargazers_count: String?
-  
+    
     /******* 需要再加 ********/
     
     
     override static func mj_replacedKeyFromPropertyName() -> [NSObject : AnyObject]! {
         return ["desc" : "description"]
     }
+
 }

@@ -22,7 +22,7 @@ enum URLRouter: URLRequestConvertible {
     case UserFollowing(page: Int, name: String)
     case UserFollowers(page: Int, name: String)
 
-    case SearchRepositories(page: Int, q: String, sort: String)
+    case SearchRepos(page: Int, q: String, sort: String)
     
     var URLRequest: NSMutableURLRequest {
         
@@ -46,7 +46,7 @@ enum URLRouter: URLRequestConvertible {
             case .UserFollowing(let page, let name):
                 method = .GET
                 path = "users/\(name)/following?page=\(page)"
-            case .SearchRepositories(let page, let q, let sort):
+            case .SearchRepos(let page, let q, let sort):
                 method = .GET
                 path = "search/repositories?q=\(q)&sort=\(sort)&page=\(page)"
         }

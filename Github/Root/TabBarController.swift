@@ -61,3 +61,21 @@ class TabBarController: RDVTabBarController {
     }
     
 }
+
+extension TabBarController {
+
+    class func hiddenTabBar() {
+        
+        let delegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        let tabBarVC = delegate.window?.rootViewController as? TabBarController
+        tabBarVC?.tabBarHidden = true
+    }
+    
+    class func showTabBar() {
+        
+        let delegate =  UIApplication.sharedApplication().delegate as! AppDelegate
+        let tabBarVC = delegate.window?.rootViewController as? TabBarController
+        tabBarVC?.tabBarHidden = false
+    }
+
+}

@@ -17,6 +17,8 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var owner: UILabel!
     
+    var userDetail: Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,9 +30,13 @@ class RepositoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupUI(model: RepositoryModel) {
-        avatar.kf_setImageWithURL(NSURL(string: model.owner!.avatar_url!)!)
-        owner.text = "Owner: \(model.owner!.login!)"
+    func setupUI(model: ReposModel) {
+        if userDetail {
+            owner.text = model.language
+        } else {
+            avatar.kf_setImageWithURL(NSURL(string: model.owner!.avatar_url!)!)
+            owner.text = "Owner: \(model.owner!.login!)"
+        }
         name.text = model.name
         start.text = "Stars: \(model.stargazers_count!)"
         desc.text = model.desc

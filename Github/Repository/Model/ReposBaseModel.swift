@@ -8,13 +8,13 @@
 
 import UIKit
 
-class RepositoryBaseModel: BaseModel {
+class ReposBaseModel: BaseModel {
 
     var total_count: NSString?
     var incomplete_results: NSNumber?
-    var items: [RepositoryModel]?
+    var items: [ReposModel]? = []
     
     override static func mj_objectClassInArray() -> [NSObject : AnyObject]! {
-        return ["items": RepositoryModel.classForCoder()]
+        return ["items": ReposModel.classForCoder()]
     }
 }

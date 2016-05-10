@@ -12,7 +12,7 @@ class RepositoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var reposit: RepositoryBaseModel?
+    var reposit: ReposBaseModel? = ReposBaseModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +21,18 @@ class RepositoryViewController: UIViewController {
     
     func loadData() {
         if let model = Archive.fetch("reposit.data") {
-            reposit = model as? RepositoryBaseModel
+            reposit = model as? ReposBaseModel
             self.tableView.reloadData()
         }
         requestSearchUser()
     }
     
     func requestSearchUser() {
-        request(URLRouter.SearchUser(page: 1, q: "language:JavaScript", sort: "stars")).responseJSON { (response) in
+        request(URLRouter.SearchRepos(page: 1, q: "language:JavaScript", sort: "stars")).responseJSON { (response) in
             do {
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
-                self.reposit = RepositoryBaseModel.mj_objectWithKeyValues(data)
+                print("data = \(data)")
+                self.reposit = ReposBaseModel.mj_objectWithKeyValues(data)
                 Archive.save(self.reposit!, fileName: "reposit.data")
                 self.tableView.reloadData()
             } catch {
@@ -41,10 +42,8 @@ class RepositoryViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = reposit?.items?.count {
-            return count
-        }
-        return 0
+        print(reposit!.items!.count)
+        return reposit!.items!.count
     }
     
     // MARK: UITableViewDataSource

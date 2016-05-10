@@ -12,7 +12,7 @@ class SearchModel: BaseModel {
     
     var total_count: NSNumber?
     var incomplete_results: NSNumber?
-    var items: [UserModel]?
+    var items: [UserModel]? = []
     
     override static func mj_objectClassInArray() -> [NSObject : AnyObject]! {
         return ["items": UserModel.classForCoder()]

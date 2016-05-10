@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryOwnerModel: BaseModel {
+class ReposOwnerModel: BaseModel {
 
     var login: String?
     var id: NSNumber?
