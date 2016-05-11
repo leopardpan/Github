@@ -49,6 +49,20 @@
 		FEE0F23E1CDB2325006DCB7B /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0F23D1CDB2325006DCB7B /* Archive.swift */; };
 		FEE0F2401CDB3436006DCB7B /* UserDetailTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0F23F1CDB3436006DCB7B /* UserDetailTopView.swift */; };
 		FEE0F2421CDB3454006DCB7B /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0F2411CDB3454006DCB7B /* UserDetailViewController.swift */; };
+		FEF231A51CE2D385009AA541 /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF231A31CE2D385009AA541 /* JPEngine.m */; };
+		FEF231A61CE2D385009AA541 /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = FEF231A41CE2D385009AA541 /* JSPatch.js */; };
+		FEF231A91CE2D509009AA541 /* test_v_1.0.js in Resources */ = {isa = PBXBuildFile; fileRef = FEF231A81CE2D509009AA541 /* test_v_1.0.js */; };
+		FEF231AB1CE2DB5D009AA541 /* JSPatch_Note.md in Sources */ = {isa = PBXBuildFile; fileRef = FEF231AA1CE2DB5D009AA541 /* JSPatch_Note.md */; };
+		FEF231AD1CE2E9ED009AA541 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231AC1CE2E9ED009AA541 /* AdSupport.framework */; };
+		FEF231AF1CE2E9F2009AA541 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231AE1CE2E9F2009AA541 /* libz.tbd */; };
+		FEF231B11CE2E9F9009AA541 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231B01CE2E9F9009AA541 /* CoreTelephony.framework */; };
+		FEF231B31CE2E9FE009AA541 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231B21CE2E9FE009AA541 /* SystemConfiguration.framework */; };
+		FEF231B51CE2F732009AA541 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231B41CE2F732009AA541 /* CoreLocation.framework */; };
+		FEF231B71CE31767009AA541 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF231B61CE31767009AA541 /* String+Utils.swift */; };
+		FEF231B91CE31A96009AA541 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF231B81CE31A96009AA541 /* CityViewController.swift */; };
+		FEF231BB1CE31AA7009AA541 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF231BA1CE31AA7009AA541 /* LanguageViewController.swift */; };
+		FEF231BE1CE31D00009AA541 /* libTalkingData.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231BD1CE31D00009AA541 /* libTalkingData.a */; };
+		FEF231C11CE338F4009AA541 /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = FEF231C01CE338F4009AA541 /* city.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +140,22 @@
 		FEE0F23D1CDB2325006DCB7B /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		FEE0F23F1CDB3436006DCB7B /* UserDetailTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailTopView.swift; sourceTree = "<group>"; };
 		FEE0F2411CDB3454006DCB7B /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		FEF231A21CE2D385009AA541 /* JPEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPEngine.h; sourceTree = "<group>"; };
+		FEF231A31CE2D385009AA541 /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
+		FEF231A41CE2D385009AA541 /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
+		FEF231A81CE2D509009AA541 /* test_v_1.0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test_v_1.0.js; sourceTree = "<group>"; };
+		FEF231AA1CE2DB5D009AA541 /* JSPatch_Note.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JSPatch_Note.md; sourceTree = "<group>"; };
+		FEF231AC1CE2E9ED009AA541 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FEF231AE1CE2E9F2009AA541 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FEF231B01CE2E9F9009AA541 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		FEF231B21CE2E9FE009AA541 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FEF231B41CE2F732009AA541 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FEF231B61CE31767009AA541 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		FEF231B81CE31A96009AA541 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		FEF231BA1CE31AA7009AA541 /* LanguageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
+		FEF231BD1CE31D00009AA541 /* libTalkingData.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTalkingData.a; sourceTree = "<group>"; };
+		FEF231BF1CE31D09009AA541 /* TalkingData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingData.h; sourceTree = "<group>"; };
+		FEF231C01CE338F4009AA541 /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +163,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEF231AF1CE2E9F2009AA541 /* libz.tbd in Frameworks */,
+				FEF231BE1CE31D00009AA541 /* libTalkingData.a in Frameworks */,
+				FEF231B51CE2F732009AA541 /* CoreLocation.framework in Frameworks */,
+				FEF231B31CE2E9FE009AA541 /* SystemConfiguration.framework in Frameworks */,
+				FEF231B11CE2E9F9009AA541 /* CoreTelephony.framework in Frameworks */,
+				FEF231AD1CE2E9ED009AA541 /* AdSupport.framework in Frameworks */,
 				8CB68DB3825C56C812061BCF /* Pods_Github.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +186,11 @@
 		2C8F7DB218A4E7787B6A71ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FEF231B41CE2F732009AA541 /* CoreLocation.framework */,
+				FEF231B21CE2E9FE009AA541 /* SystemConfiguration.framework */,
+				FEF231B01CE2E9F9009AA541 /* CoreTelephony.framework */,
+				FEF231AE1CE2E9F2009AA541 /* libz.tbd */,
+				FEF231AC1CE2E9ED009AA541 /* AdSupport.framework */,
 				576E199A60585BF931BCB6F0 /* Pods_Github.framework */,
 			);
 			name = Frameworks;
@@ -189,6 +230,7 @@
 				D6DB759D1CD87ECB004A1E8D /* Vendor */,
 				FEE0F23C1CDB2325006DCB7B /* Util */,
 				D6DB75901CD87D7C004A1E8D /* Root */,
+				FEF231A71CE2D4B7009AA541 /* Resource */,
 				D6DB756F1CD87C51004A1E8D /* AppDelegate.swift */,
 				D6DB75781CD87C51004A1E8D /* LaunchScreen.storyboard */,
 				D6DB757B1CD87C51004A1E8D /* Info.plist */,
@@ -220,6 +262,8 @@
 		D6DB759D1CD87ECB004A1E8D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FEF231BC1CE31CF7009AA541 /* TalkingData */,
+				FEF231A11CE2D385009AA541 /* JSPatch */,
 				FE10E8DF1CD9E20300E09EBA /* MJExtension */,
 				D6DB759E1CD87ECB004A1E8D /* RDVTabBarController */,
 			);
@@ -261,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				D6DB75C31CD892DC004A1E8D /* UIColor+Utils.swift */,
+				FEF231B61CE31767009AA541 /* String+Utils.swift */,
 			);
 			name = Category;
 			path = Catogary;
@@ -378,6 +423,8 @@
 			children = (
 				FEE0F22E1CDAEED0006DCB7B /* HomePageViewController.swift */,
 				FEE0F2411CDB3454006DCB7B /* UserDetailViewController.swift */,
+				FEF231B81CE31A96009AA541 /* CityViewController.swift */,
+				FEF231BA1CE31AA7009AA541 /* LanguageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,6 +455,35 @@
 				FEE0F23D1CDB2325006DCB7B /* Archive.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		FEF231A11CE2D385009AA541 /* JSPatch */ = {
+			isa = PBXGroup;
+			children = (
+				FEF231A21CE2D385009AA541 /* JPEngine.h */,
+				FEF231A31CE2D385009AA541 /* JPEngine.m */,
+				FEF231A41CE2D385009AA541 /* JSPatch.js */,
+			);
+			path = JSPatch;
+			sourceTree = "<group>";
+		};
+		FEF231A71CE2D4B7009AA541 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				FEF231C01CE338F4009AA541 /* city.json */,
+				FEF231AA1CE2DB5D009AA541 /* JSPatch_Note.md */,
+				FEF231A81CE2D509009AA541 /* test_v_1.0.js */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		FEF231BC1CE31CF7009AA541 /* TalkingData */ = {
+			isa = PBXGroup;
+			children = (
+				FEF231BF1CE31D09009AA541 /* TalkingData.h */,
+				FEF231BD1CE31D00009AA541 /* libTalkingData.a */,
+			);
+			path = TalkingData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,11 +572,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEF231A61CE2D385009AA541 /* JSPatch.js in Resources */,
 				FE2B83CA1CE166EC004D4153 /* HomePage.storyboard in Resources */,
+				FEF231C11CE338F4009AA541 /* city.json in Resources */,
 				D6DB75BF1CD88FBB004A1E8D /* Repository.storyboard in Resources */,
 				D6DB757A1CD87C51004A1E8D /* LaunchScreen.storyboard in Resources */,
 				D6DB75C11CD88FC3004A1E8D /* Mine.storyboard in Resources */,
 				FE9E88C71CE1EFB1004A37D3 /* Assets.xcassets in Resources */,
+				FEF231A91CE2D509009AA541 /* test_v_1.0.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,9 +669,13 @@
 				FE10E8F51CD9E20300E09EBA /* MJExtensionConst.m in Sources */,
 				FE10E8F61CD9E20300E09EBA /* MJFoundation.m in Sources */,
 				FE10E8FE1CD9E20300E09EBA /* NSString+MJExtension.m in Sources */,
+				FEF231A51CE2D385009AA541 /* JPEngine.m in Sources */,
+				FEF231BB1CE31AA7009AA541 /* LanguageViewController.swift in Sources */,
 				FEE0F22B1CDAEEC9006DCB7B /* RepositoryTableViewCell.swift in Sources */,
 				FE10E8F81CD9E20300E09EBA /* MJPropertyKey.m in Sources */,
+				FEF231B71CE31767009AA541 /* String+Utils.swift in Sources */,
 				D6DB75921CD87DA4004A1E8D /* TabBarController.swift in Sources */,
+				FEF231B91CE31A96009AA541 /* CityViewController.swift in Sources */,
 				D6DB75A71CD87ECB004A1E8D /* RDVTabBarItem.m in Sources */,
 				FEE0F2351CDAEED0006DCB7B /* SearchModel.swift in Sources */,
 				FEE0F2291CDAEEC9006DCB7B /* ReposModel.swift in Sources */,
@@ -609,6 +692,7 @@
 				FEE0F23E1CDB2325006DCB7B /* Archive.swift in Sources */,
 				FE10E8FA1CD9E20300E09EBA /* NSObject+MJClass.m in Sources */,
 				FE10E8FB1CD9E20300E09EBA /* NSObject+MJCoding.m in Sources */,
+				FEF231AB1CE2DB5D009AA541 /* JSPatch_Note.md in Sources */,
 				FEE0F21D1CDAEEC4006DCB7B /* MineViewController.swift in Sources */,
 				FEE0F23B1CDB151D006DCB7B /* BaseModel.swift in Sources */,
 				FE74C1B91CE1B75A00E70605 /* UserReposModel.swift in Sources */,
@@ -745,6 +829,10 @@
 				INFOPLIST_FILE = Github/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Github/Vendor/TalkingData",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = baixin.Github;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Github/Github-Bridging-Header.h";
@@ -763,6 +851,10 @@
 				INFOPLIST_FILE = Github/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Github/Vendor/TalkingData",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = baixin.Github;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Github/Github-Bridging-Header.h";

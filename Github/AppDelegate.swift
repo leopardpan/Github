@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -22,7 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = tabBarVC
         self.window?.makeKeyAndVisible()
         
+        executeScript()
+        
         return true
+    }
+    
+    func executeScript() {
+        let path = NSBundle.mainBundle().pathForResource("test_v_1.0", ofType: "js")
+        do {
+            let patch = try String(contentsOfFile: path!)
+            
+            JPEngine.startEngine()
+            JPEngine.evaluateScript(patch)
+            
+        } catch {}
     }
 
     func applicationWillResignActive(application: UIApplication) {

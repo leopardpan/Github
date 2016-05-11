@@ -27,7 +27,7 @@ class UserTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setupUI(model: UserModel) {
+    dynamic func setupUI(model: UserModel) {
         avatar.kf_setImageWithURL(NSURL(string: model.avatar_url!)!)
         login.text = model.login
     }

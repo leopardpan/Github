@@ -28,7 +28,7 @@ class UserDetailTopView: UIView {
     
     @IBOutlet weak var underLine: UIView!
     
-    func setupUI(model: UserDetailModel) {
+    dynamic func setupUI(model: UserDetailModel) {
         
         avatar.kf_setImageWithURL(NSURL(string: model.avatar_url!)!)
 
@@ -41,9 +41,6 @@ class UserDetailTopView: UIView {
         company.text = model.company
         location.text = model.location
         
-        print(model.public_repos)
-        print(model.following)
-        print(model.followers)
         repoCount.text = model.public_repos
         f1Count.text = model.following
         f2Count.text = model.followers

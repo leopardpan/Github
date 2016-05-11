@@ -19,7 +19,7 @@ class RepositoryViewController: UIViewController {
         loadData()
     }
     
-    func loadData() {
+    dynamic func loadData() {
         if let model = Archive.fetch("reposit.data") {
             reposit = model as? ReposBaseModel
             self.tableView.reloadData()
@@ -27,11 +27,10 @@ class RepositoryViewController: UIViewController {
         requestSearchUser()
     }
     
-    func requestSearchUser() {
+    dynamic func requestSearchUser() {
         request(URLRouter.SearchRepos(page: 1, q: "language:JavaScript", sort: "stars")).responseJSON { (response) in
             do {
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
-                print("data = \(data)")
                 self.reposit = ReposBaseModel.mj_objectWithKeyValues(data)
                 Archive.save(self.reposit!, fileName: "reposit.data")
                 self.tableView.reloadData()
@@ -42,7 +41,6 @@ class RepositoryViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(reposit!.items!.count)
         return reposit!.items!.count
     }
     

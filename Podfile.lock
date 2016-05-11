@@ -8,11 +8,11 @@ PODS:
   - PKHUD (3.1.0)
 
 DEPENDENCIES:
-  - Alamofire
-  - Charts
-  - IBAnimatable
-  - Kingfisher
-  - PKHUD
+  - Alamofire (~> 3.3.1)
+  - Charts (~> 2.2.4)
+  - IBAnimatable (~> 2.2)
+  - Kingfisher (~> 2.2.2)
+  - PKHUD (~> 3.1.0)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc

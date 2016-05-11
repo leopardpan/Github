@@ -7,11 +7,15 @@
 //
 
 import Alamofire
+import CoreLocation
 
-class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var bgViewWidth: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    
+    private var locationManager: CLLocationManager?
+    private var location: String?
     
     private var searchModel: SearchModel? = SearchModel()
     
@@ -19,9 +23,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         bgViewWidth.constant = self.view.bounds.size.width*3
         loadData()
+        requestLocation()
     }
     
-    func loadData() {
+    dynamic func loadData() {
         if let model = Archive.fetch("user.data") {
             searchModel = model as? SearchModel
             self.tableView.reloadData()
@@ -29,8 +34,13 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         requestSearchUser()
     }
     
-    func requestSearchUser() {
-        request(URLRouter.SearchUser(page: 1, q: "location:beijing", sort: "followers")).responseJSON { (response) in
+    dynamic func requestSearchUser() {
+        
+        let loca = (location != nil) ? location : "beijing"
+        let q = "location"+loca!
+        let sort = "followers"
+        
+        request(URLRouter.SearchUser(page: 1, q: q, sort: sort)).responseJSON { (response) in
             do {
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
                 self.searchModel = SearchModel.mj_objectWithKeyValues(data)
@@ -40,6 +50,18 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 
             }
         }
+    }
+    
+    dynamic func requestLocation () {
+        print("requestLocation")
+
+        self.locationManager = CLLocationManager()
+        self.locationManager!.delegate = self
+        if self.locationManager!.respondsToSelector(#selector(CLLocationManager.requestAlwaysAuthorization)) {
+            print("requestAlwaysAuthorization")
+            self.locationManager!.requestAlwaysAuthorization()
+        }
+        self.locationManager?.startUpdatingLocation()
     }
     
     // MARK: UITableViewDataSource
@@ -80,4 +102,40 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
+    
+    //MARK: CoreLocationManagerDelegate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("get location")
+        let location:CLLocation = locations[locations.count-1] as CLLocation
+        
+        if (location.horizontalAccuracy > 0) {
+            self.locationManager!.stopUpdatingLocation()
+            print(location.coordinate)
+        }
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.reverseGeocodeLocation(location, completionHandler: {(placemarks, error) in
+            if placemarks!.count > 0 {
+                let city = placemarks!.first!.locality
+                let country = placemarks!.first!.country
+                
+                print(city!.transformPinying())
+                print(country!.transformPinying())
+                if (city != nil) && city != "beijing" {
+                    self.requestSearchUser()
+                }
+            }
+        })
+    }    
+    
+    @IBAction func enterCity(sender: UIBarButtonItem) {
+        let cityVC = Storyboards.HomePage.instantiateViewControllerWithIdentifier("cityVC")
+        self.navigationController?.pushViewController(cityVC, animated: true)
+    }
+    
+    @IBAction func enterLanguage(sender: UIBarButtonItem) {
+        let languageVC = Storyboards.HomePage.instantiateViewControllerWithIdentifier("languageVC")
+        self.navigationController?.pushViewController(languageVC, animated: true)
+    }
+    
 }

@@ -30,7 +30,7 @@ class RepositoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupUI(model: ReposModel) {
+    dynamic func setupUI(model: ReposModel) {
         if userDetail {
             owner.text = model.language
         } else {
