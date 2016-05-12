@@ -28,7 +28,8 @@ class UserTableViewCell: UITableViewCell {
     }
 
     dynamic func setupUI(model: UserModel) {
-        avatar.kf_setImageWithURL(NSURL(string: model.avatar_url!)!)
+        avatar.sd_setImageWithURL(NSURL(string: model.avatar_url!)!, placeholderImage: UIImage(named: "avatar"))
+        
         login.text = model.login
     }
     

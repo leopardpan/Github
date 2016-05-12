@@ -67,6 +67,8 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
             if (repos != nil) {
                 self.reposModels = repos
                 tableViewRepo.reloadData()
+            } else {
+                LoadingView.show(self.view)
             }
             requestUserRepos()
         }
@@ -82,9 +84,7 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
                     let fileName = "userDetail\(self.userModel!.login!).data"
                     Archive.save(self.userDetailModel!, fileName: fileName)
                 }
-            } catch {
-                
-            }
+            } catch { }
         }
     }
     
@@ -102,11 +102,10 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
                     Archive.save(self.reposModels!, fileName: fileName)
                     
                     self.tableViewRepo.reloadData()
+                    LoadingView.dismiss(self.view)
                 }
                 
-            } catch {
-                
-            }
+            } catch { }
         }
     }
     

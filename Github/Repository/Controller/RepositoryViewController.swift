@@ -19,6 +19,16 @@ class RepositoryViewController: UIViewController {
         loadData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        TalkingData.trackPageBegin("Repository")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        TalkingData.trackPageEnd("Repository")
+    }
+    
     dynamic func loadData() {
         if let model = Archive.fetch("reposit.data") {
             reposit = model as? ReposBaseModel

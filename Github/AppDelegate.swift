@@ -21,22 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = tabBarVC
         self.window?.makeKeyAndVisible()
         
-        executeScript()
+        setup()
         
         return true
     }
     
-    func executeScript() {
-        let path = NSBundle.mainBundle().pathForResource("test_v_1.0", ofType: "js")
-        do {
-            let patch = try String(contentsOfFile: path!)
-            
-            JPEngine.startEngine()
-            JPEngine.evaluateScript(patch)
-            
-        } catch {}
-    }
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -58,7 +47,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
+extension AppDelegate {
 
+    func setup() {
+        executeScript()
+        setCatchException()
+        setupTalkingData()
+    }
+    
+    func executeScript() {
+        let path = NSBundle.mainBundle().pathForResource("test_v_1.0", ofType: "js")
+        do {
+            let patch = try String(contentsOfFile: path!)
+            
+            JPEngine.startEngine()
+            JPEngine.evaluateScript(patch)
+            
+        } catch {}
+    }
+    
+    func setCatchException() {
+        
+        NSSetUncaughtExceptionHandler { exception in
+            print(exception)
+            print("\ncallStackSymbols:")
+            for str in exception.callStackSymbols {
+                print(str)
+            }
+        }
+    }
+    
+    func setupTalkingData() {
+        
+        TalkingData.setLogEnabled(false)
+        TalkingData.sessionStarted("7676D6B658716C715684786A0262A48E", withChannelId: "Github")
+    }
 }
 

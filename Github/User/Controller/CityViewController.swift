@@ -9,25 +9,15 @@
 import UIKit
 
 class CityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
     
-    let countrys = [String: AnyObject]()
+    @IBOutlet weak var tableView: UITableView!
+    
+    var citys: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    dynamic func loadCityData() {
-        
-        let path = NSBundle.mainBundle().pathForResource("city", ofType: "json")
-        do {
-            let str = try String(contentsOfFile: path!)
-            let data = try NSJSONSerialization.dataWithJSONObject(str, options: [])
-
-        } catch {}
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,14 +32,14 @@ class CityViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return countrys.count
+        return citys.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let ID = "cityCell"
         let cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(ID, forIndexPath: indexPath)
-//        cell!.textLabel?.text = countrys.allkey[indexPath.row]
+        cell!.textLabel?.text = citys[indexPath.row]
         return cell!
     }
     
@@ -57,12 +47,14 @@ class CityViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        
-        
+        let str = self.citys[indexPath.row]
+        NSNotificationCenter.defaultCenter().postNotificationName("SELECT_CITY", object: str)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
+        
     }
 
 }

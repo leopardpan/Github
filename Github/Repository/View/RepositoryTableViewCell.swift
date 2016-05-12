@@ -34,7 +34,7 @@ class RepositoryTableViewCell: UITableViewCell {
         if userDetail {
             owner.text = model.language
         } else {
-            avatar.kf_setImageWithURL(NSURL(string: model.owner!.avatar_url!)!)
+            avatar.sd_setImageWithURL(NSURL(string: model.owner!.avatar_url!)!, placeholderImage: UIImage(named: "avatar"))
             owner.text = "Owner: \(model.owner!.login!)"
         }
         name.text = model.name

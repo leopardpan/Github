@@ -30,8 +30,9 @@ class UserDetailTopView: UIView {
     
     dynamic func setupUI(model: UserDetailModel) {
         
-        avatar.kf_setImageWithURL(NSURL(string: model.avatar_url!)!)
+        avatar.sd_setImageWithURL(NSURL(string: model.avatar_url!)!, placeholderImage: UIImage(named: "avatar"))
 
+        
         login.text = model.login
         blog.text = model.blog
         name.text = model.name

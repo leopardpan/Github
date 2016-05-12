@@ -1,5 +1,5 @@
 {
-	"China"["beijing","shanghai","shenzhen","hangzhou","guangzhou","chengdu","nanjing","wuhan","suzhou","xiamen","tianjin","chongqing","changsha"],
+	"China":["beijing","shanghai","shenzhen","hangzhou","guangzhou","chengdu","nanjing","wuhan","suzhou","xiamen","tianjin","chongqing","changsha"],
 	"USA":["San Francisco","New York","Seattle","Chicago","Los Angeles","Boston","Washington","San Diego","San Jose","Philadelphia"],
 	"UK":["London","Cambridge","Manchester","Edinburgh","Bristol","Birmingham","Glasgow","Oxford","Newcastle","Leeds"],
 	"Germany":["Berlin","Munich","Hamburg","Cologne","Stuttgart","Dresden","Leipzig"],

@@ -15,7 +15,7 @@ class TabBarController: RDVTabBarController {
         super.viewDidLoad()
      
         self.setupViewControllers()
-        self.customizeInterface()
+        self.setupNavgationBar()
     }
     
     func setupViewControllers() -> Void {
@@ -33,11 +33,8 @@ class TabBarController: RDVTabBarController {
     }
     
     func customizeTabBarForController(tabBarController:TabBarController) -> Void {
-        
-        let tabbg_select = UIImage(named: "tabbar_selected_background")
-        let tabbg_normal = UIImage(named: "tabbar_normal_background")
-        
-        let tabBarItemImgs:Array<String> = ["Tab_homepage","Tab_repository","Tab_me"]
+                
+        let tabBarItemImgs:Array<String> = ["Tab_hp","Tab_repo","Tab_me"]
         
         var index: Int = 0
         
@@ -46,20 +43,28 @@ class TabBarController: RDVTabBarController {
                 let selectImg = UIImage(named: "\(tabBarItemImgs[index])"+"_selected")
                 let normalImg = UIImage(named: "\(tabBarItemImgs[index])"+"_normal")
                 item.setFinishedSelectedImage(selectImg, withFinishedUnselectedImage: normalImg)
-                item.setBackgroundSelectedImage(tabbg_select, withUnselectedImage: tabbg_normal)
-
                 index += 1;
             }
         }
     }
     
-    func customizeInterface() -> Void {
-        let backgroundImage = UIImage(named: "navigationbar_background_tall")
+    func setupNavgationBar() -> Void {
+        let backgroundImage = UIImage(named: "nav_bg")
         UINavigationBar.appearance().setBackgroundImage(backgroundImage, forBarMetrics: UIBarMetrics.Default)
-
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor(rgb: 0x6d7e8c)], forState: UIControlState.Normal)
+    
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "Nav_Back")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "Nav_Back")
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+ 
     }
     
+
 }
 
 extension TabBarController {
