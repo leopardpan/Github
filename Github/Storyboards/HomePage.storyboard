@@ -22,14 +22,14 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="30"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GWR-0H-qEc">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV5-Xa-TSX" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="95" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTS-eZ-1FD">
-                                                <rect key="frame" x="80" y="0.0" width="80" height="30"/>
+                                                <rect key="frame" x="95" y="0.0" width="95" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal">
                                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
@@ -37,22 +37,32 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="luv-Zc-KMZ">
-                                                <rect key="frame" x="160" y="0.0" width="80" height="30"/>
+                                                <rect key="frame" x="190" y="0.0" width="95" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal">
                                                     <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="beijing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i30-kp-Hsf">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="95" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="china" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qM1-25-GD2">
-                                                <rect key="frame" x="80" y="0.0" width="80" height="30"/>
+                                                <rect key="frame" x="95" y="0.0" width="95" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qo7-jn-sxt" customClass="AnimatableLabel" customModule="IBAnimatable">
+                                                <rect key="frame" x="245" y="7" width="40" height="16"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="ymh-gM-siY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -78,14 +88,12 @@
                                             <constraint firstItem="uTS-eZ-1FD" firstAttribute="leading" secondItem="qV5-Xa-TSX" secondAttribute="trailing" id="us5-Vm-cH8"/>
                                             <constraint firstAttribute="bottom" secondItem="luv-Zc-KMZ" secondAttribute="bottom" id="vS2-BH-4eG"/>
                                             <constraint firstItem="qM1-25-GD2" firstAttribute="trailing" secondItem="uTS-eZ-1FD" secondAttribute="trailing" id="xNs-WK-EDh"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qo7-jn-sxt" secondAttribute="trailing" id="zIv-fW-w3U"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="total:----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-C4-uK7" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                        <rect key="frame" x="240" y="7" width="80" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXf-C4-uK7" customClass="AnimatableLabel" customModule="IBAnimatable">
+                                        <rect key="frame" x="285" y="7" width="23" height="16"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="rvT-VE-oo9"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -105,10 +113,12 @@
                                     <constraint firstItem="GWR-0H-qEc" firstAttribute="leading" secondItem="fDb-ov-5bl" secondAttribute="leading" id="Gqu-N0-xQA"/>
                                     <constraint firstAttribute="bottom" secondItem="lXf-C4-uK7" secondAttribute="bottom" constant="7" id="IX2-d9-vpg"/>
                                     <constraint firstAttribute="bottom" secondItem="GWR-0H-qEc" secondAttribute="bottom" id="Pux-9x-hEX"/>
+                                    <constraint firstItem="Qo7-jn-sxt" firstAttribute="top" secondItem="lXf-C4-uK7" secondAttribute="top" id="YLk-0n-Mfe"/>
                                     <constraint firstItem="lXf-C4-uK7" firstAttribute="top" secondItem="fDb-ov-5bl" secondAttribute="top" constant="7" id="cwe-hR-7cl"/>
                                     <constraint firstItem="GWR-0H-qEc" firstAttribute="top" secondItem="fDb-ov-5bl" secondAttribute="top" id="f8C-Rd-Dor"/>
                                     <constraint firstItem="lXf-C4-uK7" firstAttribute="leading" secondItem="GWR-0H-qEc" secondAttribute="trailing" id="mA3-63-o7d"/>
-                                    <constraint firstAttribute="trailing" secondItem="lXf-C4-uK7" secondAttribute="trailing" id="wLQ-4G-ZSn"/>
+                                    <constraint firstAttribute="trailing" secondItem="lXf-C4-uK7" secondAttribute="trailing" constant="12" id="wLQ-4G-ZSn"/>
+                                    <constraint firstItem="Qo7-jn-sxt" firstAttribute="bottom" secondItem="lXf-C4-uK7" secondAttribute="bottom" id="whd-rL-8Mm"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IbI-ob-dT6">
@@ -314,6 +324,7 @@
                         <outlet property="countryLabel" destination="qM1-25-GD2" id="bTh-Nj-pGV"/>
                         <outlet property="tableViewCity" destination="Rf1-E1-guv" id="XDG-Lx-Ivh"/>
                         <outlet property="tableViewCountry" destination="nXC-iN-f7C" id="PjM-zF-8XU"/>
+                        <outlet property="totalLabel" destination="lXf-C4-uK7" id="7ZM-n8-ATN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6u-7s-lCr" userLabel="First Responder" sceneMemberID="firstResponder"/>

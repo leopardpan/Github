@@ -10,7 +10,7 @@ import UIKit
 
 class SearchModel: BaseModel {
     
-    var total_count: NSNumber?
+    var total_count: NSNumber = 0
     var incomplete_results: NSNumber?
     var items: [UserModel]? = []
     

@@ -21,6 +21,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
     
     private var searchModelCity: SearchModel? = SearchModel()
     private var searchModelCountry: SearchModel? = SearchModel()
@@ -76,6 +77,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if let model = Archive.fetch("userCity:\(self.city).data") {
             searchModelCity = model as? SearchModel
+            self.totalLabel.text = "\(searchModelCity?.total_count)"
             self.tableViewCity.reloadData()
         } else {
             LoadingView.show(self.view)        
@@ -135,32 +137,43 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
 
         request(URLRouter.SearchUser(page: page, q: q, sort: sort)).responseJSON { (response) in
             do {
+                
+                LoadingView.dismiss(self.view)
+                self.tableViewCity.mj_header.endRefreshing()
+                self.tableViewCity.mj_footer.endRefreshing()
+                self.tableViewCountry.mj_header.endRefreshing()
+                self.tableViewCountry.mj_footer.endRefreshing()
+                
+                print("response = \(response)")
+//                print(response)
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
+                print("data = \(data)")
                 let model = SearchModel.mj_objectWithKeyValues(data)
-                if model.items!.count != 0 {
+                print("model = \(model)")
                     
+                if model.items!.count != 0 {
+                    print("response--1")
+                    self.totalLabel.text = "\(model.total_count)"
                     if self.currentPage == 1 {
+                        print("response--2")
                         if self.pageCity.isPullUp {
+                            print("response--3")
                             self.searchModelCity = model
-                            self.tableViewCity.mj_header.endRefreshing()
-                            LoadingView.dismiss(self.view)
                         } else {
                             for user in model.items! {
                                 self.searchModelCity?.items?.append(user)
                             }
-                            self.tableViewCity.mj_footer.endRefreshing()
                         }
+                        print("response--4")
                         Archive.save(self.searchModelCity!, fileName: "userCity:\(self.city).data")
                         self.tableViewCity.reloadData()
                     } else if self.currentPage == 2 {
                         if self.pageCountry.isPullUp {
                             self.searchModelCountry = model
-                            self.tableViewCountry.mj_header.endRefreshing()
                         } else {
                             for user in model.items! {
                                 self.searchModelCountry?.items?.append(user)
                             }
-                            self.tableViewCountry.mj_footer.endRefreshing()
                         }
                         Archive.save(self.searchModelCountry!, fileName: "userCountry:\(self.country).data")
                         self.tableViewCountry.reloadData()
@@ -246,7 +259,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 if currentPage == 2 {
                     if searchModelCountry?.items?.count == 0 {
-                        LoadingView.show(self.view)                        
+                        LoadingView.show(self.view)
                         self.requestSearchUser()
                     }
                 }
@@ -260,34 +273,42 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             cityLabel.textColor = UIColor.blackColor()
             countryLabel.font = UIFont.systemFontOfSize(12)
             countryLabel.textColor = UIColor.grayColor()
+            self.totalLabel.text = "\(self.searchModelCity!.total_count)"
         } else if currentPage == 2 {
             cityLabel.font = UIFont.systemFontOfSize(12)
             cityLabel.textColor = UIColor.grayColor()
             countryLabel.font = UIFont.boldSystemFontOfSize(12)
             countryLabel.textColor = UIColor.blackColor()
+            self.totalLabel.text = "\(self.searchModelCountry!.total_count)"
         }
     }
     
     //MARK: CoreLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        print("locaiton")
         let location:CLLocation = locations[locations.count-1] as CLLocation
         
         if (location.horizontalAccuracy > 0) {
+            print("locaiton--1")
+            
             self.locationManager!.stopUpdatingLocation()
         }
+        print("locaiton--2")
         
-        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) in
-            if placemarks!.count > 0 {
-                let newCity = placemarks!.first!.locality
-//                let country = placemarks!.first!.country
-                
-                if (newCity!.transformPinying() != nil) && newCity!.transformPinying() != "beijing" {
-                    self.city = newCity!.transformPinying()
-                    self.cityLabel.text = self.city                    
-                    self.requestSearchUser()
-                }
-            }
-        })
+//        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) in
+//            if placemarks!.count > 0 {
+//                let newCity = placemarks!.first!.locality
+////                let country = placemarks!.first!.country
+//                
+//                print("city = \(newCity)")
+//                if (newCity!.transformPinying() != nil) && newCity!.transformPinying() != "beijing" {
+//                    self.city = newCity!.transformPinying()
+//                    self.cityLabel.text = self.city                    
+//                    self.requestSearchUser()
+//                }
+//            }
+//        })
     }
     
     // MARK: NSNotification
