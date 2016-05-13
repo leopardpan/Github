@@ -72,6 +72,7 @@ extension AppDelegate {
         // TalkingData
 //        TalkingData.setLogEnabled(false)
         TalkingData.trackEvent("app_launch", label: UIDevice.currentDevice().name)
+        TalkingData.setVersionWithCode("1.0.1", name: "测试版Github:v_1.0.1")
         TalkingData.sessionStarted("7676D6B658716C715684786A0262A48E", withChannelId: "Github")
         
         // Bugly
