@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (3.3.1)
   - IBAnimatable (2.2)
+  - pop (1.0.9)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3.1)
   - IBAnimatable (~> 2.2)
+  - pop (~> 1.0)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   IBAnimatable: 41ddf0b307ebec241d5dd510f472c51fb7fe519b
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
 
 COCOAPODS: 0.39.0

@@ -13,6 +13,7 @@ class CityViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     var citys: [String] = []
+    var country: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +48,10 @@ class CityViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let str = self.citys[indexPath.row]
-        NSNotificationCenter.defaultCenter().postNotificationName("SELECT_CITY", object: str)
+        let city = self.citys[indexPath.row]
+        
+        let dic = ["city":city,"country":country]
+        NSNotificationCenter.defaultCenter().postNotificationName("SELECT_CITY", object: dic)
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     

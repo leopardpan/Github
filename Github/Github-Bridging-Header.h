@@ -10,4 +10,5 @@
 #import "JPEngine.h"
 #import "TalkingData.h"
 #import <Bugly/Bugly.h>
+#import <pop/POP.h>
 #include "UIImageView+WebCache.h"

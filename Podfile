@@ -6,6 +6,6 @@ target 'Github' do
 
  pod 'IBAnimatable', '~> 2.2’
  pod 'Alamofire’, '~> 3.3.1’
-
+ pod 'pop', '~> 1.0'
 end
 

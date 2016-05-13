@@ -67,6 +67,7 @@ class CountryViewController: UIViewController {
         
         let cityVC = Storyboards.HomePage.instantiateViewControllerWithIdentifier("cityVC") as? CityViewController
         cityVC?.citys = arr as! [String]
+        cityVC?.country = countrys[indexPath.row]
         self.navigationController?.pushViewController(cityVC!, animated: true)
         TalkingData.trackEvent("cityVC")
     }

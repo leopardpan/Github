@@ -31,6 +31,10 @@
 		FE10E8FD1CD9E20300E09EBA /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = FE10E8F21CD9E20300E09EBA /* NSObject+MJProperty.m */; };
 		FE10E8FE1CD9E20300E09EBA /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = FE10E8F41CD9E20300E09EBA /* NSString+MJExtension.m */; };
 		FE11C2441CDAC622009EC1AA /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE11C2431CDAC622009EC1AA /* URLRouter.swift */; };
+		FE142DDA1CE58A1D00FBF76A /* BXTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DD91CE58A1D00FBF76A /* BXTableViewCell.swift */; };
+		FE142DDC1CE59D3C00FBF76A /* UIImageView+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DDB1CE59D3C00FBF76A /* UIImageView+Name.swift */; };
+		FE142DDE1CE5A0D900FBF76A /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DDD1CE5A0D900FBF76A /* UIView+Animation.swift */; };
+		FE142DE21CE5BC5900FBF76A /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DE11CE5BC5900FBF76A /* PageModel.swift */; };
 		FE2B83CA1CE166EC004D4153 /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2B83C91CE166EC004D4153 /* HomePage.storyboard */; };
 		FE2B83CC1CE1675D004D4153 /* UserDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2B83CB1CE1675D004D4153 /* UserDetailModel.swift */; };
 		FE4933FB1CE47F1700DAFB44 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4933FA1CE47F1700DAFB44 /* LoadingView.swift */; };
@@ -94,7 +98,6 @@
 		FEF231A51CE2D385009AA541 /* JPEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF231A31CE2D385009AA541 /* JPEngine.m */; };
 		FEF231A61CE2D385009AA541 /* JSPatch.js in Resources */ = {isa = PBXBuildFile; fileRef = FEF231A41CE2D385009AA541 /* JSPatch.js */; };
 		FEF231A91CE2D509009AA541 /* test_v_1.0.js in Resources */ = {isa = PBXBuildFile; fileRef = FEF231A81CE2D509009AA541 /* test_v_1.0.js */; };
-		FEF231AB1CE2DB5D009AA541 /* JSPatch_Note.md in Sources */ = {isa = PBXBuildFile; fileRef = FEF231AA1CE2DB5D009AA541 /* JSPatch_Note.md */; };
 		FEF231AD1CE2E9ED009AA541 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231AC1CE2E9ED009AA541 /* AdSupport.framework */; };
 		FEF231AF1CE2E9F2009AA541 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231AE1CE2E9F2009AA541 /* libz.tbd */; };
 		FEF231B11CE2E9F9009AA541 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEF231B01CE2E9F9009AA541 /* CoreTelephony.framework */; };
@@ -162,6 +165,10 @@
 		FE10E8F31CD9E20300E09EBA /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		FE10E8F41CD9E20300E09EBA /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		FE11C2431CDAC622009EC1AA /* URLRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
+		FE142DD91CE58A1D00FBF76A /* BXTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BXTableViewCell.swift; sourceTree = "<group>"; };
+		FE142DDB1CE59D3C00FBF76A /* UIImageView+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Name.swift"; sourceTree = "<group>"; };
+		FE142DDD1CE5A0D900FBF76A /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		FE142DE11CE5BC5900FBF76A /* PageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		FE2B83C91CE166EC004D4153 /* HomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
 		FE2B83CB1CE1675D004D4153 /* UserDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModel.swift; sourceTree = "<group>"; };
 		FE4933FA1CE47F1700DAFB44 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -263,7 +270,6 @@
 		FEF231A31CE2D385009AA541 /* JPEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPEngine.m; sourceTree = "<group>"; };
 		FEF231A41CE2D385009AA541 /* JSPatch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSPatch.js; sourceTree = "<group>"; };
 		FEF231A81CE2D509009AA541 /* test_v_1.0.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test_v_1.0.js; sourceTree = "<group>"; };
-		FEF231AA1CE2DB5D009AA541 /* JSPatch_Note.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JSPatch_Note.md; sourceTree = "<group>"; };
 		FEF231AC1CE2E9ED009AA541 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		FEF231AE1CE2E9F2009AA541 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FEF231B01CE2E9F9009AA541 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -341,6 +347,7 @@
 		D6DB756E1CD87C51004A1E8D /* Github */ = {
 			isa = PBXGroup;
 			children = (
+				FE142DD61CE5892000FBF76A /* CustomView */,
 				FEE0F22C1CDAEED0006DCB7B /* User */,
 				FEE0F21E1CDAEEC9006DCB7B /* Repository */,
 				FEE0F21A1CDAEEC4006DCB7B /* Mine */,
@@ -430,6 +437,8 @@
 			children = (
 				D6DB75C31CD892DC004A1E8D /* UIColor+Utils.swift */,
 				FEF231B61CE31767009AA541 /* String+Utils.swift */,
+				FE142DDB1CE59D3C00FBF76A /* UIImageView+Name.swift */,
+				FE142DDD1CE5A0D900FBF76A /* UIView+Animation.swift */,
 			);
 			name = Category;
 			path = Catogary;
@@ -478,6 +487,14 @@
 				FE10E8F41CD9E20300E09EBA /* NSString+MJExtension.m */,
 			);
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		FE142DD61CE5892000FBF76A /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				FE142DD91CE58A1D00FBF76A /* BXTableViewCell.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		FE4933FE1CE4817B00DAFB44 /* MJRefresh */ = {
@@ -714,6 +731,7 @@
 				FE4933FA1CE47F1700DAFB44 /* LoadingView.swift */,
 				FE4933FC1CE47F4200DAFB44 /* LoadingView.xib */,
 				FE49343E1CE4842200DAFB44 /* Refresh.swift */,
+				FE142DE11CE5BC5900FBF76A /* PageModel.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -732,7 +750,6 @@
 			isa = PBXGroup;
 			children = (
 				FEF231C01CE338F4009AA541 /* city.json */,
-				FEF231AA1CE2DB5D009AA541 /* JSPatch_Note.md */,
 				FEF231A81CE2D509009AA541 /* test_v_1.0.js */,
 			);
 			path = Resource;
@@ -962,6 +979,7 @@
 				FE88848D1CE431500009D829 /* UIImage+GIF.m in Sources */,
 				FE8884901CE431500009D829 /* UIImageView+HighlightedWebCache.m in Sources */,
 				FE10E8FD1CD9E20300E09EBA /* NSObject+MJProperty.m in Sources */,
+				FE142DE21CE5BC5900FBF76A /* PageModel.swift in Sources */,
 				FE49343C1CE4817B00DAFB44 /* UIScrollView+MJRefresh.m in Sources */,
 				FE49343B1CE4817B00DAFB44 /* UIScrollView+MJExtension.m in Sources */,
 				FE4934361CE4817B00DAFB44 /* MJRefreshGifHeader.m in Sources */,
@@ -972,6 +990,7 @@
 				FE88848A1CE431500009D829 /* SDWebImageManager.m in Sources */,
 				FE8884871CE431500009D829 /* SDWebImageDecoder.m in Sources */,
 				FEE0F2401CDB3436006DCB7B /* UserDetailTopView.swift in Sources */,
+				FE142DDC1CE59D3C00FBF76A /* UIImageView+Name.swift in Sources */,
 				FEE0F2271CDAEEC9006DCB7B /* RepositoryViewController.swift in Sources */,
 				FE4934371CE4817B00DAFB44 /* MJRefreshNormalHeader.m in Sources */,
 				D6DB75BA1CD885F0004A1E8D /* AppConstants.swift in Sources */,
@@ -979,6 +998,7 @@
 				FE10E8FC1CD9E20300E09EBA /* NSObject+MJKeyValue.m in Sources */,
 				FE4934331CE4817B00DAFB44 /* MJRefreshBackGifFooter.m in Sources */,
 				D6DB75A61CD87ECB004A1E8D /* RDVTabBarController.m in Sources */,
+				FE142DDA1CE58A1D00FBF76A /* BXTableViewCell.swift in Sources */,
 				FE8884881CE431500009D829 /* SDWebImageDownloader.m in Sources */,
 				FE49343A1CE4817B00DAFB44 /* MJRefreshConst.m in Sources */,
 				FE8884921CE431500009D829 /* UIView+WebCacheOperation.m in Sources */,
@@ -989,8 +1009,8 @@
 				FE10E8FB1CD9E20300E09EBA /* NSObject+MJCoding.m in Sources */,
 				FE88848B1CE431500009D829 /* SDWebImagePrefetcher.m in Sources */,
 				FE4934341CE4817B00DAFB44 /* MJRefreshBackNormalFooter.m in Sources */,
+				FE142DDE1CE5A0D900FBF76A /* UIView+Animation.swift in Sources */,
 				FE4934301CE4817B00DAFB44 /* MJRefreshAutoGifFooter.m in Sources */,
-				FEF231AB1CE2DB5D009AA541 /* JSPatch_Note.md in Sources */,
 				FEE0F21D1CDAEEC4006DCB7B /* MineViewController.swift in Sources */,
 				FE49343F1CE4842200DAFB44 /* Refresh.swift in Sources */,
 				FEE0F23B1CDB151D006DCB7B /* BaseModel.swift in Sources */,
@@ -1122,6 +1142,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 36B89FD5567A2F1D35F1DE3C /* Pods-Github.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
@@ -1144,6 +1165,8 @@
 					"-framework",
 					"\"IBAnimatable\"",
 					"-ObjC",
+					"-all_load",
+					"-lc++",
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = baixin.Github;
@@ -1157,6 +1180,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7F8B0CBD10AFA4649AFDDDB /* Pods-Github.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
@@ -1179,6 +1203,8 @@
 					"-framework",
 					"\"IBAnimatable\"",
 					"-ObjC",
+					"-all_load",
+					"-lc++",
 				);
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = baixin.Github;

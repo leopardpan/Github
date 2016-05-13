@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryTableViewCell: UITableViewCell {
+class RepositoryTableViewCell: BXTableViewCell {
     
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var avatar: UIImageView!
@@ -19,22 +19,11 @@ class RepositoryTableViewCell: UITableViewCell {
     
     var userDetail: Bool = false
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     dynamic func setupUI(model: ReposModel) {
         if userDetail {
             owner.text = model.language
         } else {
-            avatar.sd_setImageWithURL(NSURL(string: model.owner!.avatar_url!)!, placeholderImage: UIImage(named: "avatar"))
+            avatar.name(model.owner!.avatar_url!)
             owner.text = "Owner: \(model.owner!.login!)"
         }
         name.text = model.name

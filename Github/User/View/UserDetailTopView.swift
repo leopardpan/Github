@@ -28,10 +28,10 @@ class UserDetailTopView: UIView {
     
     @IBOutlet weak var underLine: UIView!
     
+    
     dynamic func setupUI(model: UserDetailModel) {
         
-        avatar.sd_setImageWithURL(NSURL(string: model.avatar_url!)!, placeholderImage: UIImage(named: "avatar"))
-
+        avatar.name(model.avatar_url!)
         
         login.text = model.login
         blog.text = model.blog
@@ -47,12 +47,5 @@ class UserDetailTopView: UIView {
         f2Count.text = model.followers
     }
     
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
