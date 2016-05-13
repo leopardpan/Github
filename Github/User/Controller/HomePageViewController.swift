@@ -79,14 +79,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             searchModelCity = model as? SearchModel
             self.totalLabel.text = "\(searchModelCity?.total_count)"
             self.tableViewCity.reloadData()
-        } else {
-            LoadingView.show(self.view)        
         }
         
         if let model = Archive.fetch("userCountry:\(self.country).data") {
             searchModelCountry = model as? SearchModel
-        } else {
-            LoadingView.show(self.view)
         }
         
         requestSearchUser()
@@ -119,21 +115,22 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     dynamic func requestSearchUser() {
         
         var page = 1
-        var location = ""
+        var q = ""
         if currentPage == 1 {
             
             page = pageCity.page
-            location = (city != nil) ? city! : "beijing"
-            self.cityLabel.text = location
+            city = (city != nil) ? city! : "beijing"
+            q = "location:"+city!
+            
         } else if currentPage == 2 {
             
             page = pageCountry.page
-            location = (country != nil) ? country! : "china"
-            self.countryLabel.text = location
+            country = (country != nil) ? country! : "china"
+            q = "location:"+country!
         }
         
-        let q = "location:"+location
         let sort = "followers"
+        LoadingView.show(self.view)
 
         request(URLRouter.SearchUser(page: page, q: q, sort: sort)).responseJSON { (response) in
             do {
@@ -144,27 +141,27 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.tableViewCountry.mj_header.endRefreshing()
                 self.tableViewCountry.mj_footer.endRefreshing()
                 
-                print("response = \(response)")
-//                print(response)
+                if response.result.error != nil {
+                    ToastView.show("请求失败", inView: self.view)
+                    return
+                }
+                
+                self.cityLabel.text = self.city
+                self.countryLabel.text = self.country
+                
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
-                print("data = \(data)")
                 let model = SearchModel.mj_objectWithKeyValues(data)
-                print("model = \(model)")
-                    
+                
                 if model.items!.count != 0 {
-                    print("response--1")
                     self.totalLabel.text = "\(model.total_count)"
                     if self.currentPage == 1 {
-                        print("response--2")
                         if self.pageCity.isPullUp {
-                            print("response--3")
                             self.searchModelCity = model
                         } else {
                             for user in model.items! {
                                 self.searchModelCity?.items?.append(user)
                             }
                         }
-                        print("response--4")
                         Archive.save(self.searchModelCity!, fileName: "userCity:\(self.city).data")
                         self.tableViewCity.reloadData()
                     } else if self.currentPage == 2 {
@@ -179,9 +176,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                         self.tableViewCountry.reloadData()
                     }
                 }
-            } catch {
-                
-            }
+            } catch { }
         }
     }
     
@@ -197,10 +192,9 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     // MARK: UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.currentPage == 1 {
+        if tableView == self.tableViewCity {
             return searchModelCity!.items!.count
-        } else if self.currentPage == 2 {
-            print(searchModelCountry!.items!.count)
+        } else if tableView == tableViewCountry {
             return searchModelCountry!.items!.count
         } else {
             return 0
@@ -210,9 +204,9 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var ID = ""
-        if tableView.tag == 1 {
+        if tableView == self.tableViewCity {
             ID = "cell1"
-        } else if tableView.tag == 2 {
+        } else if tableView == tableViewCountry {
             ID = "cell2"
         }
         
@@ -259,7 +253,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 if currentPage == 2 {
                     if searchModelCountry?.items?.count == 0 {
-                        LoadingView.show(self.view)
                         self.requestSearchUser()
                     }
                 }
@@ -283,32 +276,35 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    enum MyError: ErrorType {
+        case NotExist
+        case OutOfRange
+    }
+    
     //MARK: CoreLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print("locaiton")
-        let location:CLLocation = locations[locations.count-1] as CLLocation
-        
-        if (location.horizontalAccuracy > 0) {
-            print("locaiton--1")
+        if locations.count >= 1 {
+            let location:CLLocation = locations[locations.count-1] as CLLocation
             
-            self.locationManager!.stopUpdatingLocation()
+            if (location.horizontalAccuracy > 0) {
+                self.locationManager!.stopUpdatingLocation()
+            }
+            
+            CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) in
+                
+                if placemarks != nil && placemarks!.count > 0 {
+                    let newCity = placemarks!.first!.locality
+                    //                let country = placemarks!.first!.country
+                    
+                    if (newCity!.transformPinying() != nil) && newCity!.transformPinying() != "beijing" {
+                        self.city = newCity!.transformPinying()
+                        self.requestSearchUser()
+                    }
+                    
+                }
+            })
         }
-        print("locaiton--2")
-        
-//        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) in
-//            if placemarks!.count > 0 {
-//                let newCity = placemarks!.first!.locality
-////                let country = placemarks!.first!.country
-//                
-//                print("city = \(newCity)")
-//                if (newCity!.transformPinying() != nil) && newCity!.transformPinying() != "beijing" {
-//                    self.city = newCity!.transformPinying()
-//                    self.cityLabel.text = self.city                    
-//                    self.requestSearchUser()
-//                }
-//            }
-//        })
     }
     
     // MARK: NSNotification
@@ -317,9 +313,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         if let dic = noti.object! as? [String:String] {
             self.city = dic["city"]
             self.country = dic["country"]
-            
-            self.cityLabel.text = dic["city"]
-            self.countryLabel.text = dic["country"]
             
             NSUserDefaults.standardUserDefaults().setObject(dic, forKey: "location")
             

@@ -37,7 +37,7 @@ FOUNDATION_EXPORT void BLYLogv(BuglyLogLevel level, NSString *format, va_list ar
 /**
  *    @brief  初始化日志模块
  *
- *    @param level 设置默认日志级别，默认BLYLogLevelInfo
+ *    @param level 设置默认日志级别，默认BLYLogLevelSilent
  *
  *    @param printConsole 是否打印到控制台，默认NO
  */

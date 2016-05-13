@@ -103,17 +103,10 @@ BLY_START_NONNULL
 @property (nonatomic, assign) id<BuglyDelegate> delegate;
 
 /**
- * 控制自定义日志上报，默认值为BuglyLogLevelSilent，即开启日志记录功能。
+ * 控制自定义日志上报，默认值为BuglyLogLevelSilent，即关闭日志记录功能。
  * 如果设置为BuglyLogLevelWarn，则在崩溃时会上报Warn、Error接口打印的日志
  */
 @property (nonatomic, assign) BuglyLogLevel reportLogLevel;
-
-/**
- *  默认设置
- *
- *  @return 返回默认设置
- */
-+ (instancetype)defaultConfig;
 
 BLY_END_NONNULL
 

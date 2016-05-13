@@ -76,8 +76,10 @@ extension AppDelegate {
         TalkingData.sessionStarted("7676D6B658716C715684786A0262A48E", withChannelId: "Github")
         
         // Bugly
-        Bugly.startWithAppId("900029477")
-
+        let config = BuglyConfig()
+        config.blockMonitorEnable = true
+        Bugly.startWithAppId("900029477", config: config)
+        
     }
 }
 

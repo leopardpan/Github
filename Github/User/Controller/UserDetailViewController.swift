@@ -77,6 +77,11 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
     private func requestUserDetail() {
         request(URLRouter.UserDetail(name: userModel!.login!)).responseJSON { (response) in
             do {
+                
+                if response.result.error != nil {
+                    return
+                }
+                
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
                 self.userDetailModel = UserDetailModel.mj_objectWithKeyValues(data)
                 if (self.userDetailModel != nil) {
@@ -91,6 +96,13 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
     private func requestUserRepos() {
         request(URLRouter.UserRepos(page: 1, name: userModel!.login!)).responseJSON { (response) in
             do {
+                
+                LoadingView.dismiss(self.view)
+                if response.result.error != nil {
+                    ToastView.show("请求失败", inView: self.view)
+                    return
+                }
+                
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
                 if let arr = data as? [AnyObject] {
                     for obj in arr {
@@ -102,7 +114,6 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
                     Archive.save(self.reposModels!, fileName: fileName)
                     
                     self.tableViewRepo.reloadData()
-                    LoadingView.dismiss(self.view)
                 }
                 
             } catch { }

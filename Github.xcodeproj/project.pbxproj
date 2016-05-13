@@ -35,6 +35,10 @@
 		FE142DDC1CE59D3C00FBF76A /* UIImageView+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DDB1CE59D3C00FBF76A /* UIImageView+Name.swift */; };
 		FE142DDE1CE5A0D900FBF76A /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DDD1CE5A0D900FBF76A /* UIView+Animation.swift */; };
 		FE142DE21CE5BC5900FBF76A /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DE11CE5BC5900FBF76A /* PageModel.swift */; };
+		FE142DE41CE5DE4C00FBF76A /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DE31CE5DE4C00FBF76A /* ToastView.swift */; };
+		FE142DE61CE5DE6400FBF76A /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE142DE51CE5DE6400FBF76A /* ToastView.xib */; };
+		FE142DE81CE5DF4200FBF76A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE142DE71CE5DF4200FBF76A /* Utils.swift */; };
+		FE142DEA1CE5E10000FBF76A /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE142DE91CE5E10000FBF76A /* Bugly.framework */; };
 		FE2B83CA1CE166EC004D4153 /* HomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2B83C91CE166EC004D4153 /* HomePage.storyboard */; };
 		FE2B83CC1CE1675D004D4153 /* UserDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2B83CB1CE1675D004D4153 /* UserDetailModel.swift */; };
 		FE4933FB1CE47F1700DAFB44 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4933FA1CE47F1700DAFB44 /* LoadingView.swift */; };
@@ -79,7 +83,6 @@
 		FE8884901CE431500009D829 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE88847E1CE431500009D829 /* UIImageView+HighlightedWebCache.m */; };
 		FE8884911CE431500009D829 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8884801CE431500009D829 /* UIImageView+WebCache.m */; };
 		FE8884921CE431500009D829 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8884821CE431500009D829 /* UIView+WebCacheOperation.m */; };
-		FE8ACB611CE4B84A0011C9B1 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8ACB601CE4B84A0011C9B1 /* Bugly.framework */; };
 		FE9E88C71CE1EFB1004A37D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE9E88C61CE1EFB1004A37D3 /* Assets.xcassets */; };
 		FEE0F21D1CDAEEC4006DCB7B /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0F21C1CDAEEC4006DCB7B /* MineViewController.swift */; };
 		FEE0F2271CDAEEC9006DCB7B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0F2201CDAEEC9006DCB7B /* RepositoryViewController.swift */; };
@@ -169,6 +172,10 @@
 		FE142DDB1CE59D3C00FBF76A /* UIImageView+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Name.swift"; sourceTree = "<group>"; };
 		FE142DDD1CE5A0D900FBF76A /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		FE142DE11CE5BC5900FBF76A /* PageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
+		FE142DE31CE5DE4C00FBF76A /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		FE142DE51CE5DE6400FBF76A /* ToastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		FE142DE71CE5DF4200FBF76A /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		FE142DE91CE5E10000FBF76A /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		FE2B83C91CE166EC004D4153 /* HomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomePage.storyboard; sourceTree = "<group>"; };
 		FE2B83CB1CE1675D004D4153 /* UserDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailModel.swift; sourceTree = "<group>"; };
 		FE4933FA1CE47F1700DAFB44 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -249,7 +256,6 @@
 		FE8884801CE431500009D829 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		FE8884811CE431500009D829 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		FE8884821CE431500009D829 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		FE8ACB601CE4B84A0011C9B1 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		FE9E88C51CE1EDF3004A37D3 /* Github copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Github copy-Info.plist"; path = "/Users/baixinpan/Desktop/OpenSource/Mine/Github/Github copy-Info.plist"; sourceTree = "<absolute>"; };
 		FE9E88C61CE1EFB1004A37D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEE0F21C1CDAEEC4006DCB7B /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +299,7 @@
 				FEF231B51CE2F732009AA541 /* CoreLocation.framework in Frameworks */,
 				FEF231B31CE2E9FE009AA541 /* SystemConfiguration.framework in Frameworks */,
 				FEF231B11CE2E9F9009AA541 /* CoreTelephony.framework in Frameworks */,
-				FE8ACB611CE4B84A0011C9B1 /* Bugly.framework in Frameworks */,
+				FE142DEA1CE5E10000FBF76A /* Bugly.framework in Frameworks */,
 				FEF231AD1CE2E9ED009AA541 /* AdSupport.framework in Frameworks */,
 				8CB68DB3825C56C812061BCF /* Pods_Github.framework in Frameworks */,
 			);
@@ -390,7 +396,7 @@
 		D6DB759D1CD87ECB004A1E8D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				FE8ACB601CE4B84A0011C9B1 /* Bugly.framework */,
+				FE142DE91CE5E10000FBF76A /* Bugly.framework */,
 				FE4933FE1CE4817B00DAFB44 /* MJRefresh */,
 				FE8884611CE431500009D829 /* SDWebImage */,
 				FEF231BC1CE31CF7009AA541 /* TalkingData */,
@@ -730,8 +736,11 @@
 				FEE0F23D1CDB2325006DCB7B /* Archive.swift */,
 				FE4933FA1CE47F1700DAFB44 /* LoadingView.swift */,
 				FE4933FC1CE47F4200DAFB44 /* LoadingView.xib */,
+				FE142DE31CE5DE4C00FBF76A /* ToastView.swift */,
+				FE142DE51CE5DE6400FBF76A /* ToastView.xib */,
 				FE49343E1CE4842200DAFB44 /* Refresh.swift */,
 				FE142DE11CE5BC5900FBF76A /* PageModel.swift */,
+				FE142DE71CE5DF4200FBF76A /* Utils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -856,6 +865,7 @@
 				D6DB75BF1CD88FBB004A1E8D /* Repository.storyboard in Resources */,
 				D6DB757A1CD87C51004A1E8D /* LaunchScreen.storyboard in Resources */,
 				D6DB75C11CD88FC3004A1E8D /* Mine.storyboard in Resources */,
+				FE142DE61CE5DE6400FBF76A /* ToastView.xib in Resources */,
 				FE4933FD1CE47F4200DAFB44 /* LoadingView.xib in Resources */,
 				FE9E88C71CE1EFB1004A37D3 /* Assets.xcassets in Resources */,
 				FE4934391CE4817B00DAFB44 /* MJRefresh.bundle in Resources */,
@@ -955,6 +965,7 @@
 				FE8884851CE431500009D829 /* SDImageCache.m in Sources */,
 				FE10E8F61CD9E20300E09EBA /* MJFoundation.m in Sources */,
 				FE8884841CE431500009D829 /* NSData+ImageContentType.m in Sources */,
+				FE142DE81CE5DF4200FBF76A /* Utils.swift in Sources */,
 				FE49343D1CE4817B00DAFB44 /* UIView+MJExtension.m in Sources */,
 				FE10E8FE1CD9E20300E09EBA /* NSString+MJExtension.m in Sources */,
 				FEF231A51CE2D385009AA541 /* JPEngine.m in Sources */,
@@ -1010,6 +1021,7 @@
 				FE88848B1CE431500009D829 /* SDWebImagePrefetcher.m in Sources */,
 				FE4934341CE4817B00DAFB44 /* MJRefreshBackNormalFooter.m in Sources */,
 				FE142DDE1CE5A0D900FBF76A /* UIView+Animation.swift in Sources */,
+				FE142DE41CE5DE4C00FBF76A /* ToastView.swift in Sources */,
 				FE4934301CE4817B00DAFB44 /* MJRefreshAutoGifFooter.m in Sources */,
 				FEE0F21D1CDAEEC4006DCB7B /* MineViewController.swift in Sources */,
 				FE49343F1CE4842200DAFB44 /* Refresh.swift in Sources */,
