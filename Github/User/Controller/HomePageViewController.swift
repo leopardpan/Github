@@ -149,7 +149,8 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         userDetail.userModel = searchModel!.items![indexPath.row]
         self.navigationController?.pushViewController(userDetail, animated: true)
         
-        TalkingData.trackEvent("homePage-cell", label: userDetail.userModel?.login, parameters: ["rank" : indexPath.row])
+        let label = "Device:\(UIDevice.currentDevice().name), Rank:\(userDetail.userModel!.login!)"
+        TalkingData.trackEvent("homePage-cell", label: label , parameters: ["rank" : indexPath.row])
 
     }
     

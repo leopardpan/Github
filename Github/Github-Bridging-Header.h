@@ -9,5 +9,5 @@
 #import "MJRefresh.h"
 #import "JPEngine.h"
 #import "TalkingData.h"
-
+#import <Bugly/Bugly.h>
 #include "UIImageView+WebCache.h"

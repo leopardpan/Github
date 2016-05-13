@@ -75,6 +75,7 @@
 		FE8884901CE431500009D829 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE88847E1CE431500009D829 /* UIImageView+HighlightedWebCache.m */; };
 		FE8884911CE431500009D829 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8884801CE431500009D829 /* UIImageView+WebCache.m */; };
 		FE8884921CE431500009D829 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FE8884821CE431500009D829 /* UIView+WebCacheOperation.m */; };
+		FE8ACB611CE4B84A0011C9B1 /* Bugly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE8ACB601CE4B84A0011C9B1 /* Bugly.framework */; };
 		FE9E88C71CE1EFB1004A37D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE9E88C61CE1EFB1004A37D3 /* Assets.xcassets */; };
 		FEE0F21D1CDAEEC4006DCB7B /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0F21C1CDAEEC4006DCB7B /* MineViewController.swift */; };
 		FEE0F2271CDAEEC9006DCB7B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE0F2201CDAEEC9006DCB7B /* RepositoryViewController.swift */; };
@@ -241,6 +242,7 @@
 		FE8884801CE431500009D829 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		FE8884811CE431500009D829 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		FE8884821CE431500009D829 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		FE8ACB601CE4B84A0011C9B1 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bugly.framework; sourceTree = "<group>"; };
 		FE9E88C51CE1EDF3004A37D3 /* Github copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Github copy-Info.plist"; path = "/Users/baixinpan/Desktop/OpenSource/Mine/Github/Github copy-Info.plist"; sourceTree = "<absolute>"; };
 		FE9E88C61CE1EFB1004A37D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEE0F21C1CDAEEC4006DCB7B /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				FEF231B51CE2F732009AA541 /* CoreLocation.framework in Frameworks */,
 				FEF231B31CE2E9FE009AA541 /* SystemConfiguration.framework in Frameworks */,
 				FEF231B11CE2E9F9009AA541 /* CoreTelephony.framework in Frameworks */,
+				FE8ACB611CE4B84A0011C9B1 /* Bugly.framework in Frameworks */,
 				FEF231AD1CE2E9ED009AA541 /* AdSupport.framework in Frameworks */,
 				8CB68DB3825C56C812061BCF /* Pods_Github.framework in Frameworks */,
 			);
@@ -380,6 +383,7 @@
 		D6DB759D1CD87ECB004A1E8D /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FE8ACB601CE4B84A0011C9B1 /* Bugly.framework */,
 				FE4933FE1CE4817B00DAFB44 /* MJRefresh */,
 				FE8884611CE431500009D829 /* SDWebImage */,
 				FEF231BC1CE31CF7009AA541 /* TalkingData */,
@@ -1122,6 +1126,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Github/Vendor",
+				);
 				INFOPLIST_FILE = Github/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1134,13 +1142,7 @@
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
-					"\"Charts\"",
-					"-framework",
 					"\"IBAnimatable\"",
-					"-framework",
-					"\"Kingfisher\"",
-					"-framework",
-					"\"PKHUD\"",
 					"-ObjC",
 				);
 				OTHER_LIBTOOLFLAGS = "";
@@ -1159,6 +1161,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Github/Vendor",
+				);
 				INFOPLIST_FILE = Github/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1171,13 +1177,7 @@
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
-					"\"Charts\"",
-					"-framework",
 					"\"IBAnimatable\"",
-					"-framework",
-					"\"Kingfisher\"",
-					"-framework",
-					"\"PKHUD\"",
 					"-ObjC",
 				);
 				OTHER_LIBTOOLFLAGS = "";

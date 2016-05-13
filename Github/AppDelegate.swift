@@ -53,8 +53,7 @@ extension AppDelegate {
 
     func setup() {
         executeScript()
-        setCatchException()
-        setupTalkingData()
+        setupSDK()
     }
     
     func executeScript() {
@@ -68,21 +67,16 @@ extension AppDelegate {
         } catch {}
     }
     
-    func setCatchException() {
+    func setupSDK() {
         
-        NSSetUncaughtExceptionHandler { exception in
-            print(exception)
-            print("\ncallStackSymbols:")
-            for str in exception.callStackSymbols {
-                print(str)
-            }
-        }
-    }
-    
-    func setupTalkingData() {
-        
-        TalkingData.setLogEnabled(false)
+        // TalkingData
+//        TalkingData.setLogEnabled(false)
+        TalkingData.trackEvent("app_launch", label: UIDevice.currentDevice().name)
         TalkingData.sessionStarted("7676D6B658716C715684786A0262A48E", withChannelId: "Github")
+        
+        // Bugly
+        Bugly.startWithAppId("900029477")
+
     }
 }
 
