@@ -47,12 +47,17 @@ class TabBarController: RDVTabBarController {
             }
         }
     }
+}
+
+
+extension TabBarController {
+
     
     func setupNavgationBar() -> Void {
         let backgroundImage = UIImage(named: "nav_bg")
         UINavigationBar.appearance().setBackgroundImage(backgroundImage, forBarMetrics: UIBarMetrics.Default)
-    
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+//        UIApplication.sharedApplication().statusBarStyle = .LightContent
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "Nav_Back")
@@ -60,15 +65,8 @@ class TabBarController: RDVTabBarController {
         UINavigationBar.appearance().shadowImage = UIImage()
         
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
- 
     }
     
-
-}
-
-extension TabBarController {
-
     class func hiddenTabBar() {
         
         let delegate =  UIApplication.sharedApplication().delegate as! AppDelegate

@@ -13,9 +13,14 @@ class RepositoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var reposit: ReposBaseModel? = ReposBaseModel()
+    
+    private var language: String = "Objective-C"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RepositoryViewController.selectLanguage(_:)), name: "SELECT_LANGUAGE_Repos", object: nil)
+        
         loadData()
     }
     
@@ -30,20 +35,37 @@ class RepositoryViewController: UIViewController {
     }
     
     dynamic func loadData() {
-        if let model = Archive.fetch("reposit.data") {
+        
+        if let model = Archive.fetch("reposit\(language).data") {
             reposit = model as? ReposBaseModel
             self.tableView.reloadData()
+        } else {
+            LoadingView.show(self.view)
+            SearchRepos()
         }
-        requestSearchUser()
     }
     
-    dynamic func requestSearchUser() {
-        request(URLRouter.SearchRepos(page: 1, q: "language:JavaScript", sort: "stars")).responseJSON { (response) in
+    dynamic func SearchRepos() {
+        
+        let q = "language:\(language)"
+        let sort = "stars"
+        
+        request(URLRouter.SearchRepos(page: 1, q: q, sort: sort)).responseJSON { (response) in
             do {
+                LoadingView.dismiss(self.view)
+                
+                if response.result.error != nil {
+                    ToastView.show("请求失败", inView: self.view)
+                    return
+                }
+                
                 let data = try NSJSONSerialization.JSONObjectWithData(response.data!, options: [])
-                self.reposit = ReposBaseModel.mj_objectWithKeyValues(data)
-                Archive.save(self.reposit!, fileName: "reposit.data")
-                self.tableView.reloadData()
+                
+                if let model = ReposBaseModel.mj_objectWithKeyValues(data) {
+                    self.reposit = model
+                    Archive.save(self.reposit!, fileName: "reposit\(self.language).data")
+                    self.tableView.reloadData()
+                }
             } catch {
                 
             }
@@ -69,5 +91,25 @@ class RepositoryViewController: UIViewController {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
+    }
+    
+    
+    dynamic func selectLanguage(noti: NSNotification) {
+        if let str = noti.object! as? String {
+            if self.language != str {
+                
+                LoadingView.show(self.view)
+                self.language = str
+                self.SearchRepos()
+            }
+        }
+    }
+    
+    
+    @IBAction func enterLanguage(sender: UIBarButtonItem) {
+        let languageVC = Storyboards.HomePage.instantiateViewControllerWithIdentifier("languageVC") as! LanguageViewController
+        languageVC.type = .Repos
+        self.navigationController?.pushViewController(languageVC, animated: true)
+        TalkingData.trackEvent("language")
     }
 }

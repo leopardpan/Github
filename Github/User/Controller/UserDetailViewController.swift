@@ -29,6 +29,7 @@ class UserDetailViewController: UIViewController, UITableViewDataSource, UITable
     private var reposModels: [ReposModel]? = []
     private var reposF1Models: [ReposModel]? = []
     private var reposF2Models: [ReposModel]? = []
+    private var currentPage: Int = 1
 
     
     override func viewDidLoad() {

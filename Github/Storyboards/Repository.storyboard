@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p2h-av-ktq" id="KcF-Bm-FJK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU4-fm-ZGj">
@@ -128,7 +128,13 @@
                             <constraint firstAttribute="bottom" secondItem="ZKc-Fx-PO1" secondAttribute="bottom" id="ohc-TT-9cc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Repository" id="q2N-fd-PcU"/>
+                    <navigationItem key="navigationItem" title="Repository" id="q2N-fd-PcU">
+                        <barButtonItem key="rightBarButtonItem" title="语言" id="rNG-e9-Jrc">
+                            <connections>
+                                <action selector="enterLanguage:" destination="sCv-gf-hop" id="Z5n-9i-pHz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="ZKc-Fx-PO1" id="qf0-3c-1Ws"/>
                     </connections>

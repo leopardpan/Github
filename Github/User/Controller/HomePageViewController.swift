@@ -16,8 +16,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableViewCountry: UITableView!
     
     private var locationManager: CLLocationManager?
+    
     private var city: String?
     private var country: String?
+    private var language: String = "all languages"
     
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
@@ -54,6 +56,8 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         bgViewWidth.constant = self.view.bounds.size.width*2
 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomePageViewController.selectCity(_:)), name: "SELECT_CITY", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomePageViewController.selectLanguage(_:)), name: "SELECT_LANGUAGE_User", object: nil)
+
         
         self.tableViewCity.mj_header = RefreshHeader(refreshingTarget: self, refreshingAction: #selector(HomePageViewController.tableHeaderRefresh))
         self.tableViewCity.mj_footer = RefreshFooter(refreshingTarget: self, refreshingAction: #selector(HomePageViewController.tableFooterRefresh))
@@ -63,8 +67,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     dynamic func loadData() {
         
-       let object = NSUserDefaults.standardUserDefaults().objectForKey("location")
-        
+        let object = NSUserDefaults.standardUserDefaults().objectForKey("location")
         if let dic = object as? [String:String] {
             self.city = dic["city"]
             self.country = dic["country"]
@@ -79,13 +82,14 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             searchModelCity = model as? SearchModel
             self.totalLabel.text = "\(searchModelCity?.total_count)"
             self.tableViewCity.reloadData()
+        } else {
+            LoadingView.show(self.view)
+            requestSearchUser()
         }
         
         if let model = Archive.fetch("userCountry:\(self.country).data") {
             searchModelCountry = model as? SearchModel
-        }
-        
-        requestSearchUser()
+        }        
     }
     
     dynamic func tableHeaderRefresh() {
@@ -129,8 +133,11 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             q = "location:"+country!
         }
         
+        if self.language != "all languages" {
+            q = q+"+language:\(self.language)"
+        }
+        
         let sort = "followers"
-        LoadingView.show(self.view)
 
         request(URLRouter.SearchUser(page: page, q: q, sort: sort)).responseJSON { (response) in
             do {
@@ -253,7 +260,8 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 if currentPage == 2 {
                     if searchModelCountry?.items?.count == 0 {
-                        self.requestSearchUser()
+                        LoadingView.show(self.view)
+                        self.requestSearchUser()                        
                     }
                 }
             }
@@ -274,11 +282,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             countryLabel.textColor = UIColor.blackColor()
             self.totalLabel.text = "\(self.searchModelCountry!.total_count)"
         }
-    }
-    
-    enum MyError: ErrorType {
-        case NotExist
-        case OutOfRange
     }
     
     //MARK: CoreLocationManagerDelegate
@@ -308,19 +311,37 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // MARK: NSNotification
-    func selectCity(noti: NSNotification) {
+    dynamic func selectCity(noti: NSNotification) {
         
         if let dic = noti.object! as? [String:String] {
-            self.city = dic["city"]
-            self.country = dic["country"]
             
-            NSUserDefaults.standardUserDefaults().setObject(dic, forKey: "location")
+            let newCity = dic["city"]
+            let newCountry = dic["country"]
             
-            currentPage = 1
-            self.requestSearchUser()
+            if newCity != self.city {
+                LoadingView.show(self.view)
+                self.city = newCity
+                self.country = newCountry
+                
+                NSUserDefaults.standardUserDefaults().setObject(dic, forKey: "location")
+                currentPage = 1
+                self.requestSearchUser()
+            }
         }
     }
     
+    dynamic func selectLanguage(noti: NSNotification) {
+        if let str = noti.object! as? String {
+            if self.language != str {
+                
+                LoadingView.show(self.view)
+                self.language = str
+                self.requestSearchUser()
+            }
+        }
+    }
+    
+    // MARK: IBAction
     @IBAction func enterCity(sender: UIBarButtonItem) {
         let countryVC = Storyboards.HomePage.instantiateViewControllerWithIdentifier("countryVC")
         self.navigationController?.pushViewController(countryVC, animated: true)
@@ -328,7 +349,8 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func enterLanguage(sender: UIBarButtonItem) {
-        let languageVC = Storyboards.HomePage.instantiateViewControllerWithIdentifier("languageVC")
+        let languageVC = Storyboards.HomePage.instantiateViewControllerWithIdentifier("languageVC") as! LanguageViewController
+        languageVC.type = .User
         self.navigationController?.pushViewController(languageVC, animated: true)
         TalkingData.trackEvent("language")
     }
