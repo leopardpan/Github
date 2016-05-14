@@ -1,5 +1,5 @@
 # JSPatch 使用笔记
-* 项目地址: [JSPatch](https://github.com/bang590/JSPatch)        
+* JSPatch项目地址: [JSPatch](https://github.com/bang590/JSPatch)        
 * 有问题先看[官方文档](https://github.com/bang590/JSPatch/wiki) 和 [Issues](https://github.com/bang590/JSPatch/issues)      
 
 

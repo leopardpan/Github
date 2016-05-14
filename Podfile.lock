@@ -2,15 +2,23 @@ PODS:
   - Alamofire (3.3.1)
   - IBAnimatable (2.2)
   - pop (1.0.9)
+  - Realm (0.102.1):
+    - Realm/Headers (= 0.102.1)
+  - Realm/Headers (0.102.1)
+  - RealmSwift (0.102.1):
+    - Realm (= 0.102.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.3.1)
   - IBAnimatable (~> 2.2)
   - pop (~> 1.0)
+  - RealmSwift (~> 0.102.0)
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   IBAnimatable: 41ddf0b307ebec241d5dd510f472c51fb7fe519b
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  Realm: 5254be610db3e5024879684717bf038990bb59ec
+  RealmSwift: 3e24e6bcf56d98ccc134f4909e00839b81a659af
 
 COCOAPODS: 0.39.0
