@@ -36,7 +36,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Archive.reamlTest()
         setup()
         loadData()
         requestLocation()
